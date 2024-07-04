@@ -1,9 +1,14 @@
+import Header from "./assets/Header.jsx"
+import Body from "./assets/Body.jsx"
+import Footer from "./assets/Footer.jsx"
 
 function App() {
 
   return (
     <>
-      <h1>cleaned up</h1>
+      <Header />
+      <Body />
+      <Footer />
     </>
   )
 }
