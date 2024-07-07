@@ -1,32 +1,72 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 function Body() {
-
-  const [city,setCity]=React.useState("");
+  const [city, setCity] = useState("");
+  const [weatherData, setWeatherData] = useState(null);
   const apiKey = "62419947539d4eb083a200928240407";
 
-  function handelCity(event){
+  function handleCity(event) {
     setCity(event.target.value);
   }
 
-  async function handleResult(){
-
+  async function fetchWeatherData(query) {
     try {
-     const rawData= await fetch("https://api.weatherapi.com/v1/forecast.json?key="+apiKey+"&q="+city+"&days=5&aqi=yes&alerts=yes");
-     const data= await rawData.json();
-     console.log(data);
+      const rawData = await fetch(
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=5&aqi=yes&alerts=yes`
+      );
+      const data = await rawData.json();
+      setWeatherData(data);
     } catch (error) {
-     console.log("api is not able to fetch data 🫠🫠");
-     console.log(error);
+      console.log("API is not able to fetch data 🫠🫠");
+      console.log(error);
     }
   }
 
-    return(
-        <>
-          <input type="text" name="city" id="searchBar" onChange={handelCity} value={city}/>
-          <button onClick={handleResult}>Search</button>
-        </>
-    );
+  function handleResult() {
+    const query = city || "Bengaluru";
+    fetchWeatherData(query);
+  }
+
+  useEffect(() => {
+    fetchWeatherData("Bengaluru");
+  }, []);
+
+  return (
+    <>
+      <div className="top">
+        <h1 className="heading">Breezer</h1>
+        <button className="btnForecast">Forecast</button>
+        <button className="btnAdvance">Advance</button>
+        <input
+          type="text"
+          name="city"
+          id="searchBar"
+          onChange={handleCity}
+          value={city}
+        />
+        <button onClick={handleResult} className="searchBtn">
+          Search
+        </button>
+      </div>
+
+      <div className="middle">
+            <div className="midFirst">
+              <div className="day-night">
+                {weatherData.current.is_day ? "Day" : "Night"}
+              </div>
+              <div className="date">
+                {new Date(weatherData.location.localtime).toLocaleDateString()}
+              </div>
+            </div>
+
+            <div className="midSecond">
+              <h2>{weatherData.location.name}</h2>
+              <p>Temperature: {weatherData.current.temp_c} °C</p>
+              <p>Condition: {weatherData.current.condition.text}</p>
+            </div>
+      </div>
+    </>
+  );
 }
 
-export default Body
+export default Body;
