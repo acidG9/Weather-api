@@ -8,3 +8,8 @@
     display: flex;
     flex-wrap: nowrap;
 }
+
+.dayNight img{
+  height: 80px;
+  width: 80px;
+}

@@ -15,6 +15,7 @@ function Body() {
         `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=5&aqi=yes&alerts=yes`
       );
       const data = await rawData.json();
+      console.log(data);
       setWeatherData(data);
     } catch (error) {
       console.log("API is not able to fetch data 🫠🫠");
@@ -51,18 +52,18 @@ function Body() {
 
       <div className="middle">
             <div className="midFirst">
-              <div className="day-night">
-                {weatherData.current.is_day ? "Day" : "Night"}
+              <div className="dayNight">
+                {weatherData?.current?.is_day ? <img src="/sun.gif" alt="sun" /> : <img src="/src/assets/img/moon.gif" alt="moon" />}
               </div>
               <div className="date">
-                {new Date(weatherData.location.localtime).toLocaleDateString()}
+                {new Date(weatherData?.location?.localtime).toLocaleDateString()}
               </div>
             </div>
 
             <div className="midSecond">
-              <h2>{weatherData.location.name}</h2>
-              <p>Temperature: {weatherData.current.temp_c} °C</p>
-              <p>Condition: {weatherData.current.condition.text}</p>
+              <h2>{weatherData?.location?.name}</h2>
+              <p>Temperature: {weatherData?.current?.temp_c} °C</p>
+              <p>Condition: {weatherData?.current?.condition.text}</p>
             </div>
       </div>
     </>
