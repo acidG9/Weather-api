@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import moment from "moment-timezone";
 
 function Body() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
+  const [currentTime, setCurrentTime] = useState("");
   const apiKey = "62419947539d4eb083a200928240407";
 
   function handleCity(event) {
@@ -32,6 +34,17 @@ function Body() {
     fetchWeatherData("Bengaluru");
   }, []);
 
+  useEffect(() => {
+    if (weatherData) {
+      const intervalId = setInterval(() => {
+        const localDate = moment.tz(moment(), weatherData.location.tz_id);
+        setCurrentTime(localDate.format("YYYY-MM-DD HH:mm:ss"));
+      }, 1000);
+
+      return () => clearInterval(intervalId); // Clear interval on unmount
+    }
+  }, [weatherData]);
+
   return (
     <>
       <div className="top">
@@ -51,23 +64,28 @@ function Body() {
       </div>
 
       <div className="middle">
-            <div className="midFirst">
-              <div className="dayNight">
-                {weatherData?.current?.is_day ? <img src="/sun.gif" alt="sun" /> : <img src="/src/assets/img/moon.gif" alt="moon" />}
-              </div>
-              <div className="date">
-                {new Date(weatherData?.location?.localtime).toLocaleDateString()}
-              </div>
-            </div>
+        <div className="midFirst">
+          <div className="dayNight">
+            {weatherData?.current?.is_day ? (
+              <img src="/src/assets/img/sun.gif" alt="sun" />
+            ) : (
+              <img src="/src/assets/img/moon.gif" alt="moon" />
+            )}
+          </div>
+          <div className="date">
+            {currentTime || "Loading..."}
+          </div>
+        </div>
 
-            <div className="midSecond">
-              <h2>{weatherData?.location?.name}</h2>
-              <p>Temperature: {weatherData?.current?.temp_c} °C</p>
-              <p>Condition: {weatherData?.current?.condition.text}</p>
-            </div>
+        <div className="midSecond">
+          <h2>{weatherData?.location?.name}</h2>
+          <p>Temperature: {weatherData?.current?.temp_c} °C</p>
+          <p>Condition: {weatherData?.current?.condition.text}</p>
+        </div>
       </div>
     </>
   );
 }
 
 export default Body;
+
