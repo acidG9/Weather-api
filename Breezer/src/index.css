@@ -4,12 +4,52 @@
     border: 0;
   }
 
-.top{
-    display: flex;
-    flex-wrap: nowrap;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f0f0;
+ /*  background-image: url('src/assets/img/cloud.jpg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+  
+.mid2Top{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.navigation{
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .dayNight img{
   height: 80px;
   width: 80px;
+}
+
+.mid1Top{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.middle{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.location img{
+  height: 25px;
+  width: 25px;
+}
+
+.mid2Mid{
+  display: flex;
+  flex-wrap: nowrap;
 }
