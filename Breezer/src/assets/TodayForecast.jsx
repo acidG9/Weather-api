@@ -10,7 +10,7 @@ function TodayForecast({propData}){
             <div key={index} className='hourlyData'>
                <p>{cast?.time}</p>
                <p>{cast?.temp_c}</p>
-               <p>{cast?.condition?.icon}</p>
+               <img src={cast?.condition?.icon} alt="weather-icon" />
                <p>{cast?.condition?.text}</p>
             </div>
           ))}

@@ -118,7 +118,7 @@ function Body() {
 
             <div className="temp-weather">
 
-              <div className="temp">{weatherData?.current?.temp_c}</div>
+              <div className="temp">{weatherData?.current?.temp_c} °C</div>
 
               <div className="weather">{weatherData?.current?.condition?.text}</div>
 
@@ -135,6 +135,30 @@ function Body() {
               <div className="visibility">{weatherData?.current?.vis_km} Km</div>
 
             </div>
+
+          </div>
+
+          <div className="mid2Bottom">
+            
+            <div className="max-min-uv">
+
+              <div className="max-min">
+                <p>Max Temprature : {weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c} °C</p>
+                <p>Avg Temprature : {weatherData?.forecast?.forecastday[0]?.day?.avgtemp_c} °C</p>
+                <p>Min Temprature : {weatherData?.forecast?.forecastday[0]?.day?.mintemp_c} °C</p>
+              </div>
+              <div className="uv">
+                <p>{weatherData?.current?.uv} UVI</p>
+                {weatherData?.current?.uv <3 ? <p>No Risk</p> : 
+                (weatherData?.current?.uv <6 ? <p>Moderate Risk</p> : 
+                (weatherData?.current?.uv <8 ? <p>High Risk</p> : 
+                <p>Extreme Risk</p>)) }
+              </div>
+            </div>
+
+            <div className="airQuality"></div>
+
+            <div className="rise-set"></div>
 
           </div>
 
