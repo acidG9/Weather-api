@@ -154,11 +154,29 @@ function Body() {
                 (weatherData?.current?.uv <8 ? <p>High Risk</p> : 
                 <p>Extreme Risk</p>)) }
               </div>
+
             </div>
 
-            <div className="airQuality"></div>
+            <div className="airQuality">
+              <p>Air Quality</p>
+              <p>{weatherData?.current?.air_quality?.co}</p>
+              <p>{weatherData?.current?.air_quality?.no2}</p>
+              <p>{weatherData?.current?.air_quality?.o3}</p>
+              <p>{weatherData?.current?.air_quality?.so2}</p>
+              <p>{weatherData?.current?.air_quality?.pm2_5}</p>
+              <p>{weatherData?.current?.air_quality?.pm10}</p>
+              {/* <p>{weatherData?.current?.air_quality?.us_epa_index}</p>
+              <p>{weatherData?.current?.air_quality?.gb_defra_index}</p> */}
+            </div>
 
-            <div className="rise-set"></div>
+            <div className="rise-set">
+              <p>Astro</p>
+              <p>Sunrise: {weatherData?.forecast?.forecastday[0]?.astro?.sunrise}</p>
+              <p>Sunset: {weatherData?.forecast?.forecastday[0]?.astro?.sunset}</p>
+              <p>Moonrise: {weatherData?.forecast?.forecastday[0]?.astro?.moonrise}</p>
+              <p>Moonset: {weatherData?.forecast?.forecastday[0]?.astro?.moonset}</p>
+              <p>Moon Phase: {weatherData?.forecast?.forecastday[0]?.astro?.moon_phase}</p>
+            </div>
 
           </div>
 
