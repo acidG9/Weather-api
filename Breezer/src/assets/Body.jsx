@@ -44,23 +44,23 @@ function Body() {
         setCurrentTime(localDate.format("h:mm:ss A"));
       }, 1000);
 
-      return () => clearInterval(intervalId); // Clear interval on unmount
+      return () => clearInterval(intervalId); 
     }
   }, [weatherData]);
 
   return (
     <>
       <div className="top">
-        <h1 className="heading">Breezer</h1>
+        <h1>Breezer</h1>
       </div>
 
-      <div className="middle">
+      <div className="mid">
 
-        <div className="midFirst">
+        <div className="mid1">
 
           <div className="mid1Top"> 
 
-           <div className="dayNight">
+           <div className="day-night">
  
              {weatherData?.current?.is_day ? (
                <img src="/src/assets/img/sun.gif" alt="sun" />
@@ -72,21 +72,21 @@ function Body() {
            <div className="date-time">
              {currentTime && (
                <>
-                 <div className="time"><h2>{currentTime || "Loading..."}</h2></div>
-                 <div className="date">{currentDate || "Loading..."}</div>
+                 <div className="time"><h1>{currentTime || "Loading..."}</h1></div>
+                 <div className="date"><p>{currentDate || "Loading..."}</p></div>
                </>
              )}
            </div>
 
           </div>
 
-          <div className="mid1Mid">
+          <div className="mid1btm">
             <TodayForecast propData={weatherData} />
           </div>
 
         </div>
 
-        <div className="midSecond">
+        <div className="mid2">
 
           <div className="mid2Top">
 
@@ -97,8 +97,6 @@ function Body() {
  
            <div className="navigation">
  
-            <button className="btnForecast">Forecast</button>
-            <button className="btnAdvance">Advance</button>
             <input
              type="text"
              name="city"
@@ -138,7 +136,7 @@ function Body() {
 
           </div>
 
-          <div className="mid2Bottom">
+          <div className="mid2Btm">
             
             <div className="max-min-uv">
 
@@ -181,6 +179,9 @@ function Body() {
           </div>
 
         </div>
+      </div>
+      <div className="btm">
+        <p>copyright@akshansh</p>
       </div>
     </>
   );

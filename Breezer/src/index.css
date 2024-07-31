@@ -4,52 +4,66 @@
     border: 0;
   }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+img{
+  height: 50px;
+  width: 50px;                                /* temporary                                                            */
 }
 
-body {
-  background-color: #f0f0f0;
- /*  background-image: url('src/assets/img/cloud.jpg'); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-  
-.mid2Top{
+.top {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+}
+
+.top > h1 {
+  font-size: 3em;
+}
+
+.mid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 80vh;
+}
+
+.mid1 {
+  flex: 0 0 25%;
+}
+
+.mid1Top {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 15vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-night{
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: nowrap;
 }
 
-.navigation{
-  display: flex;
-  flex-wrap: nowrap;
+.day-night > img {
+  width: 75%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-.dayNight img{
-  height: 80px;
-  width: 80px;
+.date-time{
+  flex: 0 0 60%; 
 }
 
-.mid1Top{
-  display: flex;
-  flex-wrap: nowrap;
+.mid1btm {
+  width: 100%;
+  height: 65vh;
 }
 
-.middle{
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.location img{
-  height: 25px;
-  width: 25px;
-}
-
-.mid2Mid{
-  display: flex;
-  flex-wrap: nowrap;
+.mid2 {
+  flex: 0 0 75%;
 }
