@@ -80,6 +80,10 @@ function Body() {
 
           </div>
 
+          <div className="mid1mid">
+           <h2>today forecast</h2>
+          </div>
+
           <div className="mid1btm">
             <TodayForecast propData={weatherData} />
           </div>
