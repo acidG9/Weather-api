@@ -4,11 +4,6 @@
     border: 0;
   }
 
-img{
-  height: 50px;
-  width: 50px;                                /* temporary                                                            */
-}
-
 .top {
   display: flex;
   justify-content: center;
@@ -95,4 +90,85 @@ img{
 
 .mid2 {
   flex: 0 0 75%;
+}
+
+.mid2Top {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.location img {
+  height: auto;
+  width: 50px;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.location div {
+  display: inline-block;
+}
+
+.location div h2 {
+  font-size: 2em;
+}
+
+.location div p {
+  font-size: 1.5em;
+}
+
+.yourLocation img {
+  width: 70px;
+  height: auto;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navigation input[type="text"] {
+  padding: 12px 15px;
+  width: 300px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  font-size: 1em;
+}
+
+.navigation input[type="text"]:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.navigation button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  background-color: #28a745;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.navigation button:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.mid2Mid {
+  width: 100%;
+  height: 34vh;
+}
+
+.mid2Btm {
+  width: 100%;
+  height: 34vh;
 }

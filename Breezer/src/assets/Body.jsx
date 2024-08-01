@@ -95,8 +95,11 @@ function Body() {
           <div className="mid2Top">
 
            <div className="location">
-            <h2>{weatherData?.location?.name}</h2>
-            <p> <img src="/src/assets/img/compass.gif" alt="compass" /> {weatherData?.location?.region}, {weatherData?.location?.country}</p>
+            <img src="/src/assets/img/location.gif" alt="location-icon" />
+            <div>
+             <h2> {weatherData?.location?.name}</h2>
+             <p> {weatherData?.location?.region}, {weatherData?.location?.country}</p>
+            </div>
            </div>
  
            <div className="navigation">
@@ -107,6 +110,7 @@ function Body() {
              id="searchBar"
              onChange={handleCity}
              value={city}
+             placeholder="Search..."
             />
             <button onClick={handleResult} className="searchBtn">
               Search
