@@ -81,7 +81,7 @@ function Body() {
           </div>
 
           <div className="mid1mid">
-           <h2>today forecast</h2>
+           <h2>Today Forecast</h2>
           </div>
 
           <div className="mid1btm">
@@ -124,21 +124,27 @@ function Body() {
 
             <div className="temp-weather">
 
-              <div className="temp">{weatherData?.current?.temp_c} °C</div>
+              <div className="weatherText">
 
-              <div className="weather">{weatherData?.current?.condition?.text}</div>
+               <div className="temp"><p>{weatherData?.current?.temp_c}°</p></div>
+
+               <div className="weather"><p>{weatherData?.current?.condition?.text}</p></div>
+
+              </div>
+
+              <div className="weatherImage"><img src={weatherData?.current?.condition?.icon} alt="weather-icon" /></div>
 
             </div>
 
             <div className="weatherDetails">
 
-              <div className="humidity">{weatherData?.current?.humidity} %</div>
+              <div className="humidity"><p>Humidity  <div><p>{weatherData?.current?.humidity} %</p></div></p></div>
 
-              <div className="pressure">{weatherData?.current?.pressure_mb} mb</div>
+              <div className="pressure"><p>Pressure  <div><p>{weatherData?.current?.pressure_mb} mb</p></div></p></div>
 
-              <div className="windSpeed">{weatherData?.current?.wind_kph} KmpH</div>
+              <div className="windSpeed"><p>Wind  <div><p>{weatherData?.current?.wind_kph} KmpH</p></div></p></div>
 
-              <div className="visibility">{weatherData?.current?.vis_km} Km</div>
+              <div className="visibility"><p>Visibility  <div><p>{weatherData?.current?.vis_km} Km</p></div></p></div>
 
             </div>
 
