@@ -135,18 +135,25 @@ function Body() {
               <div className="weatherImage"><img src={weatherData?.current?.condition?.icon} alt="weather-icon" /></div>
 
             </div>
-
+            
             <div className="weatherDetails">
-
-              <div className="humidity"><p>Humidity  <div><p>{weatherData?.current?.humidity} %</p></div></p></div>
-
-              <div className="pressure"><p>Pressure  <div><p>{weatherData?.current?.pressure_mb} mb</p></div></p></div>
-
-              <div className="windSpeed"><p>Wind  <div><p>{weatherData?.current?.wind_kph} KmpH</p></div></p></div>
-
-              <div className="visibility"><p>Visibility  <div><p>{weatherData?.current?.vis_km} Km</p></div></p></div>
-
-            </div>
+              <div className="humidity">
+                <p>Humidity</p>
+                <div className="data">{weatherData?.current?.humidity} %</div>
+              </div>
+              <div className="pressure">
+                <p>Pressure</p>
+                <div className="data">{weatherData?.current?.pressure_mb} mb</div>
+              </div>
+              <div className="windSpeed">
+                <p>Wind</p>
+                <div className="data">{weatherData?.current?.wind_kph} KmpH</div>
+              </div>
+              <div className="visibility">
+                <p>Visibility</p>
+                <div className="data">{weatherData?.current?.vis_km} Km</div>
+              </div>
+           </div>
 
           </div>
 
