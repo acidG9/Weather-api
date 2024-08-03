@@ -90,27 +90,63 @@ body {
   width: 100%;
   max-height: 75vh;
   overflow-y: auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mid1btm::-webkit-scrollbar {
+  display: none;
 }
 
 .hourlyData {
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  background-color: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hourlyData:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .hourlyData img {
   width: 3rem;
   height: 3rem;
   object-fit: cover;
-  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  margin-bottom: 0.3rem;
 }
+
+.castTime {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.15rem;
+}
+
+.castTemp {
+  font-size: 1.5rem;
+  color: #ff5722;
+  margin-bottom: 0.15rem;
+}
+
+.castText {
+  font-size: 0.8rem;
+  color: #666;
+}
+
 
 .mid2 {
   flex: 3;
