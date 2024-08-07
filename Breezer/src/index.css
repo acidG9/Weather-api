@@ -7,7 +7,7 @@
 
 html, body {
   height: 100%;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #e9ecef;
   color: #333;
   line-height: 1.6;
@@ -29,6 +29,11 @@ body {
 
 .top > h1 {
   font-size: 2.5rem;
+  transition: color 0.3s ease;
+}
+
+.top:hover > h1 {
+  color: #f8f9fa;
 }
 
 .container {
@@ -73,6 +78,12 @@ body {
   width: 60%;
   height: auto;
   border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day-night:hover > img {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .date-time {
@@ -88,7 +99,7 @@ body {
 
 .mid1btm {
   width: 100%;
-  max-height: 75vh;
+  max-height: 70vh;
   overflow-y: auto;
   scrollbar-width: none;
   display: flex;
@@ -111,14 +122,15 @@ body {
   padding: 1rem;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .hourlyData:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: #f8f9fa;
 }
 
 .hourlyData img {
@@ -127,6 +139,11 @@ body {
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.hourlyData:hover img {
+  transform: rotate(10deg);
 }
 
 .castTime {
@@ -146,7 +163,6 @@ body {
   font-size: 0.8rem;
   color: #666;
 }
-
 
 .mid2 {
   flex: 3;
@@ -243,6 +259,11 @@ body {
   margin-bottom: 1rem;
   margin-top: 1rem;
   width: 50%;
+  transition: transform 0.3s ease;
+}
+
+.temp-weather:hover {
+  transform: scale(1.02);
 }
 
 .weatherText {
@@ -273,9 +294,9 @@ body {
 }
 
 .weatherImage img {
-  width: 8rem;
+  width: 6rem;
   height: auto;
-  border-radius: 50%;
+  border-radius: 40%;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
@@ -296,6 +317,12 @@ body {
   margin-bottom: 0.5rem;
   border-radius: 8px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weatherDetails > div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .weatherDetails p {
@@ -333,6 +360,12 @@ body {
   padding: 1rem;
   border-radius: 0.75rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.max-min-uv:hover, .airQuality:hover, .rise-set:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .max-min-uv p, .airQuality p, .rise-set p {
@@ -352,7 +385,7 @@ body {
   color: #ff5e5e;
 }
 
-.airQuality p:first-child, .rise-set p:first-child {
+.airQuality p:first-child, .rise-set p:first-child, .max-min p:first-child {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -364,9 +397,150 @@ body {
   color: #666;
 }
 
+.airQuality {
+  text-align: center;
+}
+
 .btm {
   text-align: center;
   padding: 1rem;
   background-color: #343a40;
   color: #fff;
+}
+
+/* Tablet (iPad) Styles */
+@media (max-width: 1024px) {
+  
+.top {
+  height: 10vh;
+}
+
+.top > h1 {
+  font-size: 3.5rem;
+}
+
+.mid1 {
+  max-width: 40%;
+}
+
+.mid1btm {
+  max-height: 79vh;
+}
+
+.mid2 {
+  max-width: 60%;
+}
+
+.mid2Top {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mid2Mid {
+  flex-direction: column;
+}
+
+.temp-weather {
+  width: 90%;
+  margin-bottom: 3rem;
+}
+
+.weatherDetails {
+  width: 95%;
+}
+
+.max-min-uv {
+  width: 45%;
+  order: 1;
+}
+
+.airQuality {
+  width: 45%;
+  order: 2;
+}
+
+.rise-set {
+  width: 50%;
+  order: 3;
+  margin-top: 1rem;
+}
+
+.rise-set {
+  text-align: center;
+}
+
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .top > h1 {
+    font-size: 1.5rem;
+  }
+
+  .mid {
+    flex-direction: column;
+  }
+
+  .mid1 {
+    max-width: 100%;
+  }
+
+  .day-night {
+    flex-direction: column;
+  }
+
+  .day-night > img {
+    width: 90%;
+  }
+
+  .hourlyData {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+  }
+
+  .mid2 {
+    flex: 1;
+  }
+
+  .temp-weather {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .weatherDetails {
+    width: 100%;
+  }
+
+  .weatherDetails > div {
+    flex: 0 0 100%;
+    margin-bottom: 1rem;
+  }
+
+  .mid2Btm {
+    flex-direction: column;
+  }
+
+  .max-min-uv, .airQuality, .rise-set {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navigation input[type="text"] {
+    border-radius: 0.5rem 0 0 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .navigation button {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .bottom {
+    padding: 0.5rem;
+  }
 }
