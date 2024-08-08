@@ -92,6 +92,22 @@ function Body() {
 
         <div className="mid2">
 
+          <div className="mid2MobileClock"> 
+ 
+           {weatherData?.current?.is_day ? (
+             <img src="/src/assets/img/sun.gif" alt="sun" />
+           ) : (
+             <img src="/src/assets/img/moon.gif" alt="moon" />
+           )} 
+           {currentTime && (
+             <div>
+               <div className="time"><h1>{currentTime || "Loading..."}</h1></div>
+               <div className="date"><p>{currentDate || "Loading..."}</p></div>
+             </div>
+           )}
+
+          </div>
+
           <div className="mid2Top">
 
            <div className="location">
@@ -132,7 +148,11 @@ function Body() {
 
               </div>
 
-              <div className="weatherImage"><img src={weatherData?.current?.condition?.icon} alt="weather-icon" /></div>
+              <div className="weatherImage">
+
+               <img src={weatherData?.current?.condition?.icon} alt="weather-icon" />
+
+              </div>
 
             </div>
             
@@ -157,6 +177,18 @@ function Body() {
 
           </div>
 
+          <div className="mobileForecast">
+
+           <div className="mid1mid">
+            <h2>Today Forecast</h2>
+           </div>
+
+           <div className="mid1btm">
+             <TodayForecast propData={weatherData} />
+           </div>
+
+          </div>
+
           <div className="mid2Btm">
             
             <div className="airQuality">
@@ -166,7 +198,7 @@ function Body() {
               <p>O3 : {weatherData?.current?.air_quality?.o3}</p>
               <p>SO2 : {weatherData?.current?.air_quality?.so2}</p>
               {/* <p>Pm2_5 : {weatherData?.current?.air_quality?.pm2_5}</p> */}
-              <p>Pm10 : {weatherData?.current?.air_quality?.pm10}</p>
+              <p className="Pm10">Pm10 : {weatherData?.current?.air_quality?.pm10}</p>
               {/* <p>{weatherData?.current?.air_quality?.us_epa_index}</p>
               <p>{weatherData?.current?.air_quality?.gb_defra_index}</p> */}
             </div>
@@ -195,7 +227,7 @@ function Body() {
               <p>Sunset: {weatherData?.forecast?.forecastday[0]?.astro?.sunset}</p>
               <p>Moonrise: {weatherData?.forecast?.forecastday[0]?.astro?.moonrise}</p>
               <p>Moonset: {weatherData?.forecast?.forecastday[0]?.astro?.moonset}</p>
-              <p>Moon Phase: {weatherData?.forecast?.forecastday[0]?.astro?.moon_phase}</p>
+              <p className="moonPhase">Moon Phase: {weatherData?.forecast?.forecastday[0]?.astro?.moon_phase}</p>
             </div>
 
           </div>

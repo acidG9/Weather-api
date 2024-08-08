@@ -147,9 +147,9 @@ body {
 }
 
 .castTime {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 1.5rem;
+  letter-spacing: 0.18rem;
+  color: #06D001;
   margin-bottom: 0.15rem;
 }
 
@@ -235,6 +235,10 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 123, 255, 0.2);
 }
 
+.mid2MobileClock {
+  display: none;
+}
+
 .mid2Mid {
   width: 100%;
   display: flex;
@@ -276,7 +280,7 @@ body {
 
 .temp {
   font-size: 4rem;
-  color: #333;
+  color: #FF0000;
   margin-bottom: 0.5rem;
   padding-top: 1rem;
 }
@@ -339,6 +343,10 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 1.1em;
   color: #333;
+}
+
+.mobileForecast {
+  display: none;
 }
 
 .mid2Btm {
@@ -409,6 +417,7 @@ body {
 }
 
 /* Tablet (iPad) Styles */
+
 @media (max-width: 1024px) {
   
 .top {
@@ -472,75 +481,128 @@ body {
 }
 
 /* Mobile Styles */
+
 @media (max-width: 768px) {
-  .top > h1 {
-    font-size: 1.5rem;
-  }
 
-  .mid {
-    flex-direction: column;
-  }
+.top {
+  height: 12vh;
+}
 
-  .mid1 {
-    max-width: 100%;
-  }
+.top > h1 {
+  font-size: 3rem;
+}
 
-  .day-night {
-    flex-direction: column;
-  }
+.mid1 {
+  display: none;
+}
 
-  .day-night > img {
-    width: 90%;
-  }
+.mid2 {
+  max-width: 100%;
+}
 
-  .hourlyData {
-    width: 100%;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-  }
+.mid2Top {
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .mid2 {
-    flex: 1;
-  }
+.location img {
+  width: 4rem;
+  padding-right: 1rem;
+}
 
-  .temp-weather {
-    width: 100%;
-    margin: 1rem 0;
-  }
+.navigation {
+  margin-top: 1.2rem;
+}
 
-  .weatherDetails {
-    width: 100%;
-  }
+.mid2MobileClock {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  transition: transform 0.3s ease;
+}
 
-  .weatherDetails > div {
-    flex: 0 0 100%;
-    margin-bottom: 1rem;
-  }
+.mid2MobileClock:hover {
+  transform: scale(1.02);
+}
 
-  .mid2Btm {
-    flex-direction: column;
-  }
+.mid2MobileClock img {
+  height: auto;
+  width: 4.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .max-min-uv, .airQuality, .rise-set {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
+.mid2MobileClock img {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-  .navigation {
-    flex-direction: column;
-    align-items: stretch;
-  }
+.temp-weather {
+  flex-direction: column;
+}
 
-  .navigation input[type="text"] {
-    border-radius: 0.5rem 0 0 0;
-    margin-bottom: 0.5rem;
-  }
+.weatherImage img {
+  display: none;
+}
 
-  .navigation button {
-    border-radius: 0 0.5rem 0.5rem 0;
-  }
+.temp {
+  padding-top: 0;
+}
 
-  .bottom {
-    padding: 0.5rem;
-  }
+.max-min-uv {
+  width: 65%;
+  order: 1;
+}
+
+.airQuality {
+  margin-top: 1rem;
+  width: 40%;
+  order: 2;
+}
+
+.rise-set {
+  width: 50%;
+  order: 3;
+}
+
+.moonPhase {
+  display: none;
+}
+
+.Pm10 {
+  display: none;
+}
+
+.mobileForecast {
+  display: flex;
+  flex-direction: column;
+}
+
+.mid1mid {
+  margin-top: 1.5rem;
+}
+
+.mid1btm {
+  flex-direction: row;
+  overflow-x: auto;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.hourlyData {
+  min-width: 40%;
+}
+
+.btm p {
+  font-size: 0.95rem;
+}
+
 }
