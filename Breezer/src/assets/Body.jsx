@@ -63,9 +63,9 @@ function Body() {
            <div className="day-night">
  
              {weatherData?.current?.is_day ? (
-               <img src="/src/assets/img/sun.gif" alt="sun" />
+               <img src="/assets/sun-DQirFo_6.gif" alt="sun" srcSet="/src/assets/img/sun.gif" />
              ) : (
-               <img src="/src/assets/img/moon.gif" alt="moon" />
+               <img src="/assets/moon-DTuMHkbv.gif" alt="moon" srcSet="/src/assets/img/moon.gif" />
              )}
            </div>
  
@@ -95,9 +95,9 @@ function Body() {
           <div className="mid2MobileClock"> 
  
            {weatherData?.current?.is_day ? (
-             <img src="/src/assets/img/sun.gif" alt="sun" />
+             <img src="/assets/sun-DQirFo_6.gif" alt="sun" srcSet="/src/assets/img/sun.gif" />
            ) : (
-             <img src="/src/assets/img/moon.gif" alt="moon" />
+             <img src="/assets/moon-DTuMHkbv.gif" alt="moon" srcSet="/src/assets/img/moon.gif" />
            )} 
            {currentTime && (
              <div>
@@ -111,7 +111,7 @@ function Body() {
           <div className="mid2Top">
 
            <div className="location">
-            <img src="/src/assets/img/location.gif" alt="location-icon" />
+            <img src="/assets/location-DEdRbkHx.gif" alt="location-icon" srcSet="/src/assets/img/location.gif" /> 
             <div>
              <h2> {weatherData?.location?.name}</h2>
              <p> {weatherData?.location?.region}, {weatherData?.location?.country}</p>
