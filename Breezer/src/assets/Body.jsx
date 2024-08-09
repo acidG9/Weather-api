@@ -63,9 +63,19 @@ function Body() {
            <div className="day-night">
  
              {weatherData?.current?.is_day ? (
-               <img src="/assets/sun-DQirFo_6.gif" alt="sun" srcSet="/src/assets/img/sun.gif" />
+               <img src="/assets/sun-DQirFo_6.gif" alt="sun" 
+               onError={event => {
+                event.target.src = "/src/assets/img/sun.gif"
+                event.onerror = null
+              }}
+               />
              ) : (
-               <img src="/assets/moon-DTuMHkbv.gif" alt="moon" srcSet="/src/assets/img/moon.gif" />
+               <img src="/assets/moon-DTuMHkbv.gif" alt="moon"
+               onError={event => {
+                event.target.src = "/src/assets/img/moon.gif"
+                event.onerror = null
+              }}
+               />
              )}
            </div>
  
@@ -95,9 +105,19 @@ function Body() {
           <div className="mid2MobileClock"> 
  
            {weatherData?.current?.is_day ? (
-             <img src="/assets/sun-DQirFo_6.gif" alt="sun" srcSet="/src/assets/img/sun.gif" />
+               <img src="/assets/sun-DQirFo_6.gif" alt="sun" 
+               onError={event => {
+                event.target.src = "/src/assets/img/sun.gif"
+                event.onerror = null
+              }}
+               />
            ) : (
-             <img src="/assets/moon-DTuMHkbv.gif" alt="moon" srcSet="/src/assets/img/moon.gif" />
+            <img src="/assets/moon-DTuMHkbv.gif" alt="moon"
+            onError={event => {
+             event.target.src = "/src/assets/img/moon.gif"
+             event.onerror = null
+           }}
+            />
            )} 
            {currentTime && (
              <div>
@@ -111,7 +131,12 @@ function Body() {
           <div className="mid2Top">
 
            <div className="location">
-            <img src="/assets/location-DEdRbkHx.gif" alt="location-icon" srcSet="/src/assets/img/location.gif" /> 
+            <img src="/assets/location-DEdRbkHx.gif" alt="location-icon"
+               onError={event => {
+                event.target.src = "/src/assets/img/location.gif"
+                event.onerror = null
+              }}
+               /> 
             <div>
              <h2> {weatherData?.location?.name}</h2>
              <p> {weatherData?.location?.region}, {weatherData?.location?.country}</p>
