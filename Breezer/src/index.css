@@ -480,9 +480,9 @@ body {
 
 }
 
-/* Mobile Styles */
+/* vertical screens */
 
-@media (max-width: 768px) {
+@media (max-width: 920px) {
 
 .top {
   height: 12vh;
@@ -515,7 +515,7 @@ body {
 }
 
 .mid2MobileClock {
-  width: 75%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -523,7 +523,7 @@ body {
   padding: 1rem;
   border-radius: 0.75rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  margin: 1rem auto;
+  margin: 1rem auto 1.5rem auto;
   transition: transform 0.3s ease;
 }
 
@@ -546,11 +546,16 @@ body {
 }
 
 .temp-weather {
-  flex-direction: column;
+  justify-content: space-around;
+  width: 70%;
+}
+
+.weatherText {
+  margin-left: 1rem;
 }
 
 .weatherImage img {
-  display: none;
+  width: 42%;
 }
 
 .temp {
@@ -558,18 +563,23 @@ body {
 }
 
 .max-min-uv {
-  width: 65%;
+  margin-top: 1rem;
+  width: 40%;
   order: 1;
+}
+
+.avgTemp{
+  display: none;
 }
 
 .airQuality {
   margin-top: 1rem;
-  width: 40%;
+  width: 20%;
   order: 2;
 }
 
 .rise-set {
-  width: 50%;
+  width: 35%;
   order: 3;
 }
 
@@ -587,7 +597,7 @@ body {
 }
 
 .mid1mid {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
 }
 
 .mid1btm {
@@ -598,11 +608,116 @@ body {
 }
 
 .hourlyData {
+  min-width: 35%;
+}
+
+.btm p {
+  font-size: 1rem;
+}
+
+}
+
+/* Mobile Styles */
+
+@media (max-width: 650px) {
+
+.mid2MobileClock {
+  width: 75%;
+  margin: 1rem auto;
+}
+
+.temp-weather {
+  flex-direction: column;
+  width: 90%;
+}
+
+.weatherText {
+  margin-left: 0;
+}
+
+.weatherImage img {
+  display: none;
+}
+
+.max-min-uv {
+  margin-top: 0;
+  width: 65%;
+  order: 1;
+}
+
+.avgTemp{
+  display: block;
+}
+
+.airQuality {
+  margin-top: 1rem;
+  width: 40%;
+  order: 2;
+}
+
+.rise-set {
+  width: 50%;
+  order: 3;
+}
+
+.hourlyData {
   min-width: 40%;
 }
 
 .btm p {
   font-size: 0.95rem;
+}
+
+}
+
+/* mini phones */
+
+@media (max-width: 390px) {
+
+.mid2MobileClock h1 {
+  font-size: 1.5rem;
+}
+
+.mid2MobileClock p {
+  font-size: 0.8rem;
+}
+
+.mid2MobileClock img {
+  width: 25%;
+}
+
+.mid2Top {
+  margin-top: 1.5rem;
+}
+
+.navigation {
+  width: 80%;
+}
+
+.hourlyData {
+  min-width: 45%;
+}
+
+.max-min-uv {
+  width: 65%;
+}
+
+.airQuality {
+  width: 40%;
+}
+
+.rise-set {
+  width: 50%;
+}
+
+.max-min-uv p, .airQuality p, .rise-set p {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.85rem;
+}
+
+.btm p {
+  font-size: 0.78rem;
 }
 
 }

@@ -91,7 +91,7 @@ function Body() {
           </div>
 
           <div className="mid1mid">
-           <h2>Today Forecast</h2>
+           <h2>Today&apos;s Forecast</h2>
           </div>
 
           <div className="mid1btm">
@@ -205,7 +205,7 @@ function Body() {
           <div className="mobileForecast">
 
            <div className="mid1mid">
-            <h2>Today Forecast</h2>
+            <h2>Today&apos;s Forecast</h2>
            </div>
 
            <div className="mid1btm">
@@ -218,14 +218,14 @@ function Body() {
             
             <div className="airQuality">
               <p>Air Quality</p>
-              <p>CO : {weatherData?.current?.air_quality?.co}</p>
-              <p>NO2 : {weatherData?.current?.air_quality?.no2}</p>
-              <p>O3 : {weatherData?.current?.air_quality?.o3}</p>
+              <p>AQI : {weatherData?.current?.air_quality?.['us-epa-index']}</p>
               <p>SO2 : {weatherData?.current?.air_quality?.so2}</p>
+              <p>NO2 : {weatherData?.current?.air_quality?.no2}</p>
+              {/* <p>O3 : {weatherData?.current?.air_quality?.o3}</p> */}
               {/* <p>Pm2_5 : {weatherData?.current?.air_quality?.pm2_5}</p> */}
+              <p>CO : {weatherData?.current?.air_quality?.co}</p>
               <p className="Pm10">Pm10 : {weatherData?.current?.air_quality?.pm10}</p>
-              {/* <p>{weatherData?.current?.air_quality?.us_epa_index}</p>
-              <p>{weatherData?.current?.air_quality?.gb_defra_index}</p> */}
+              {/* <p>{weatherData?.current?.air_quality?.gb_defra_index}</p> */}
             </div>
 
             <div className="max-min-uv">
@@ -233,7 +233,7 @@ function Body() {
               <div className="max-min">
                 <p>Extreme</p>
                 <p>Max Temprature : {weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c} °C</p>
-                <p>Avg Temprature : {weatherData?.forecast?.forecastday[0]?.day?.avgtemp_c} °C</p>
+                <p className="avgTemp">Avg Temprature : {weatherData?.forecast?.forecastday[0]?.day?.avgtemp_c} °C</p>
                 <p>Min Temprature : {weatherData?.forecast?.forecastday[0]?.day?.mintemp_c} °C</p>
               </div>
               <div className="uv">
