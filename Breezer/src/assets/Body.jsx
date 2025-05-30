@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import moment from "moment-timezone";
-import TodayForecast from "./TodayForecast";
 
 function Body() {
   const [city, setCity] = useState("");
@@ -63,29 +62,19 @@ function Body() {
            <div className="day-night">
  
              {weatherData?.current?.is_day ? (
-               <img src="/assets/sun-DQirFo_6.gif" alt="sun" 
-               onError={event => {
-                event.target.src = "/src/assets/img/sun.gif"
-                event.onerror = null
-              }}
-               />
+               <img src="sun.gif" alt="sun" />
              ) : (
-               <img src="/assets/moon-DTuMHkbv.gif" alt="moon"
-               onError={event => {
-                event.target.src = "/src/assets/img/moon.gif"
-                event.onerror = null
-              }}
-               />
+               <img src="moon.gif" alt="moon" />
              )}
            </div>
  
            <div className="date-time">
-             {currentTime && (
-               <>
-                 <div className="time"><h1>{currentTime || "Loading..."}</h1></div>
-                 <div className="date"><p>{currentDate || "Loading..."}</p></div>
-               </>
-             )}
+              {weatherData && (
+                <>
+                  <div className="time"><h1>{currentTime}</h1></div>
+                  <div className="date"><p>{currentDate}</p></div>
+                </>
+              )}
            </div>
 
           </div>
@@ -95,7 +84,14 @@ function Body() {
           </div>
 
           <div className="mid1btm">
-            <TodayForecast propData={weatherData} />
+            {weatherData?.forecast?.forecastday[0]?.hour.map((cast, index) => (
+              <div key={index} className='hourlyData'>
+                 <p className='castTime'>{cast?.time.split(" ")[1]}</p>
+                 <p className='castTemp'>{cast?.temp_c}</p>
+                 <img src={cast?.condition?.icon} alt="weather-icon" />
+                 <p className='castText'>{cast?.condition?.text}</p>
+              </div>
+            ))}
           </div>
 
         </div>
@@ -105,38 +101,26 @@ function Body() {
           <div className="mid2MobileClock"> 
  
            {weatherData?.current?.is_day ? (
-               <img src="/assets/sun-DQirFo_6.gif" alt="sun" 
-               onError={event => {
-                event.target.src = "/src/assets/img/sun.gif"
-                event.onerror = null
-              }}
-               />
+               <img src="sun.gif" alt="sun" />
            ) : (
-            <img src="/assets/moon-DTuMHkbv.gif" alt="moon"
-            onError={event => {
-             event.target.src = "/src/assets/img/moon.gif"
-             event.onerror = null
-           }}
-            />
+            <img src="moon.gif" alt="moon" />
            )} 
-           {currentTime && (
-             <div>
-               <div className="time"><h1>{currentTime || "Loading..."}</h1></div>
-               <div className="date"><p>{currentDate || "Loading..."}</p></div>
-             </div>
-           )}
+
+           <div>
+              {weatherData && (
+                <>
+                  <div className="time"><h1>{currentTime}</h1></div>
+                  <div className="date"><p>{currentDate}</p></div>
+                </>
+              )}
+           </div>
 
           </div>
 
           <div className="mid2Top">
 
            <div className="location">
-            <img src="/assets/location-DEdRbkHx.gif" alt="location-icon"
-               onError={event => {
-                event.target.src = "/src/assets/img/location.gif"
-                event.onerror = null
-              }}
-               /> 
+            <img src="location.gif" alt="location-icon" /> 
             <div>
              <h2> {weatherData?.location?.name}</h2>
              <p> {weatherData?.location?.region}, {weatherData?.location?.country}</p>
@@ -175,7 +159,11 @@ function Body() {
 
               <div className="weatherImage">
 
-               <img src={weatherData?.current?.condition?.icon} alt="weather-icon" />
+                <div className="icon-aura">
+
+                  <img src={weatherData?.current?.condition?.icon} alt="weather-icon" />
+
+                </div>
 
               </div>
 
@@ -209,7 +197,14 @@ function Body() {
            </div>
 
            <div className="mid1btm">
-             <TodayForecast propData={weatherData} />
+            {weatherData?.forecast?.forecastday[0]?.hour.map((cast, index) => (
+               <div key={index} className='hourlyData'>
+                  <p className='castTime'>{cast?.time.split(" ")[1]}</p>
+                  <p className='castTemp'>{cast?.temp_c}</p>
+                  <img src={cast?.condition?.icon} alt="weather-icon" />
+                  <p className='castText'>{cast?.condition?.text}</p>
+               </div>
+             ))}
            </div>
 
           </div>
