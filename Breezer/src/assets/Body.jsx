@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import moment from "moment-timezone";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
 
 function Body() {
   const [city, setCity] = useState("");
@@ -180,7 +183,8 @@ function Body() {
               </div>
               <div className="windSpeed">
                 <p>Wind</p>
-                <div className="data">{weatherData?.current?.wind_kph} KmpH</div>
+                <div className="data data-pc">{weatherData?.current?.wind_kph} KmpH</div>
+                <div className="data data-mobile">{weatherData?.current?.wind_kph}</div>
               </div>
               <div className="visibility">
                 <p>Visibility</p>
@@ -211,8 +215,20 @@ function Body() {
 
           <div className="mid2Btm">
             
-            <div className="airQuality">
+            <div className="airQuality AQIpc">
               <p>Air Quality</p>
+              <p>AQI : {weatherData?.current?.air_quality?.['us-epa-index']}</p>
+              <p>SO2 : {weatherData?.current?.air_quality?.so2}</p>
+              <p>NO2 : {weatherData?.current?.air_quality?.no2}</p>
+              {/* <p>O3 : {weatherData?.current?.air_quality?.o3}</p> */}
+              {/* <p>Pm2_5 : {weatherData?.current?.air_quality?.pm2_5}</p> */}
+              <p>CO : {weatherData?.current?.air_quality?.co}</p>
+              <p className="Pm10">Pm10 : {weatherData?.current?.air_quality?.pm10}</p>
+              {/* <p>{weatherData?.current?.air_quality?.gb_defra_index}</p> */}
+            </div>
+
+            <div className="airQuality AQImobile">
+              <p>AQI</p>
               <p>AQI : {weatherData?.current?.air_quality?.['us-epa-index']}</p>
               <p>SO2 : {weatherData?.current?.air_quality?.so2}</p>
               <p>NO2 : {weatherData?.current?.air_quality?.no2}</p>
@@ -225,11 +241,17 @@ function Body() {
 
             <div className="max-min-uv">
 
-              <div className="max-min">
+              <div className="max-min extreme-pc">
                 <p>Extreme</p>
                 <p>Max Temprature : {weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c} °C</p>
                 <p className="avgTemp">Avg Temprature : {weatherData?.forecast?.forecastday[0]?.day?.avgtemp_c} °C</p>
                 <p>Min Temprature : {weatherData?.forecast?.forecastday[0]?.day?.mintemp_c} °C</p>
+              </div>
+              <div className="max-min extreme-mobile">
+                <p>Extreme</p>
+                <p>Max Temp : {weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c} °C</p>
+                <p className="avgTemp">Avg Temp : {weatherData?.forecast?.forecastday[0]?.day?.avgtemp_c} °C</p>
+                <p>Min Temp : {weatherData?.forecast?.forecastday[0]?.day?.mintemp_c} °C</p>
               </div>
               <div className="uv">
                 <p>{weatherData?.current?.uv} UVI</p>
@@ -243,10 +265,10 @@ function Body() {
 
             <div className="rise-set">
               <p>Astro</p>
-              <p>Sunrise: {weatherData?.forecast?.forecastday[0]?.astro?.sunrise}</p>
-              <p>Sunset: {weatherData?.forecast?.forecastday[0]?.astro?.sunset}</p>
-              <p>Moonrise: {weatherData?.forecast?.forecastday[0]?.astro?.moonrise}</p>
-              <p>Moonset: {weatherData?.forecast?.forecastday[0]?.astro?.moonset}</p>
+              <p>Sunrise: {dayjs(weatherData?.forecast?.forecastday[0]?.astro?.sunrise, "hh:mm A").format("HH:mm")}</p>
+              <p>Sunset: {dayjs(weatherData?.forecast?.forecastday[0]?.astro?.sunset, "hh:mm A").format("HH:mm")}</p>
+              <p>Moonrise: {dayjs(weatherData?.forecast?.forecastday[0]?.astro?.moonrise, "hh:mm A").format("HH:mm")}</p>
+              <p>Moonset: {dayjs(weatherData?.forecast?.forecastday[0]?.astro?.moonset, "hh:mm A").format("HH:mm")}</p>
               <p className="moonPhase">Moon Phase: {weatherData?.forecast?.forecastday[0]?.astro?.moon_phase}</p>
             </div>
 

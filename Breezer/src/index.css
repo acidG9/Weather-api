@@ -6,18 +6,18 @@
 }
 
 :root {
-  --primary: #8b5dff; /* Primary purple */
-  --primary-dark: #6a3fcc; /* Dark purple */
-  --primary-darker: #4a2a99; /* Darker purple */
-  --primary-light: #a98eff; /* Light purple */
-  --primary-lighter: #d0c0ff; /* Lighter purple */
-  --primary-lightest: #f0ebff; /* Lightest purple */
-  --accent: #ff6b6b; /* Complementary accent color */
-  --border-color: rgba(139, 93, 255, 0.3);
-  --text-dark: #2d1a5e;
-  --text-light: #f5f7fa;
-  --shadow: 0 4px 20px rgba(139, 93, 255, 0.15);
-  --transition: all 0.3s ease;
+  --primary: #2563eb; /* Vivid blue */
+  --primary-dark: #1e40af; /* Deep blue */
+  --primary-darker: #172554; /* Navy */
+  --primary-light: #60a5fa; /* Bright blue */
+  --primary-lighter: #dbeafe; /* Soft blue */
+  --primary-lightest: #f0f6ff; /* Very light blue */
+  --accent: #f59e42; /* Vibrant orange accent */
+  --border-color: rgba(37, 99, 235, 0.18);
+  --text-dark: #1e293b;
+  --text-light: #f8fafc;
+  --shadow: 0 4px 20px rgba(37, 99, 235, 0.13);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html,
@@ -510,6 +510,10 @@ body {
   font-weight: 700;
 }
 
+.data-mobile {
+  display: none;
+}
+
 .mobileForecast {
   display: none;
 }
@@ -607,6 +611,14 @@ body {
 
 .airQuality {
   text-align: center;
+}
+
+.AQImobile {
+  display: none;
+}
+
+.extreme-mobile {
+  display: none;
 }
 
 .btm {
@@ -887,6 +899,16 @@ body {
   }
 }
 
+@media (max-width: 730px) {
+  .AQIpc {
+    display: none;
+  }
+
+  .AQImobile {
+    display: block;
+  }
+}
+
 /* Mobile Styles */
 @media (max-width: 650px) {
   .mid2MobileClock {
@@ -923,6 +945,14 @@ body {
     order: 2;
   }
 
+  .AQIpc {
+    display: block;
+  }
+
+  .AQImobile {
+    display: none;
+  }
+
   .rise-set {
     width: 50%;
     order: 3;
@@ -938,7 +968,7 @@ body {
 }
 
 /* mini phones */
-@media (max-width: 390px) {
+@media (max-width: 400px) {
   .mid2MobileClock h1 {
     font-size: 1.5rem;
   }
@@ -959,6 +989,14 @@ body {
     width: 80%;
   }
 
+  .data-pc {
+    display: none;
+  }
+
+  .data-mobile {
+    display: block;
+  }
+
   .hourlyData {
     min-width: 45%;
   }
@@ -969,6 +1007,14 @@ body {
 
   .airQuality {
     width: 40%;
+  }
+
+  .AQIpc {
+    display: none;
+  }
+
+  .AQImobile {
+    display: block;
   }
 
   .rise-set {
@@ -985,5 +1031,15 @@ body {
 
   .btm p {
     font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 355px) {
+  .extreme-pc {
+    display: none;
+  }
+
+  .extreme-mobile {
+    display: block;
   }
 }
