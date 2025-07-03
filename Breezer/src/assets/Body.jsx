@@ -63,7 +63,6 @@ function Body() {
           <div className="mid1Top"> 
 
            <div className="day-night">
- 
              {weatherData?.current?.is_day ? (
                <img src="sun.gif" alt="sun" />
              ) : (

@@ -912,7 +912,7 @@ body {
 /* Mobile Styles */
 @media (max-width: 650px) {
   .mid2MobileClock {
-    width: 75%;
+    width: 85%;
     margin: 1rem auto;
   }
 
